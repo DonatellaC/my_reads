@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import BookShelfChanger from "../../components/BookShelfChanger";
+
 import Header from "../../components/Header";
 import * as BooksAPI from "../../BooksAPI";
+import Book from "../../components/Book";
 
 const Home = () => {
   const [books, setBooks] = useState([]);
@@ -26,28 +27,7 @@ const Home = () => {
             <div className="bookshelf-books">
               <ol className="books-grid">
                 <li>
-                  <div className="book">
-                    <div className="book-top">
-                      {books.map((book) => {
-                        const { id, imageLinks, title, shelf, authors } = book;
-                        return (
-                          <div key={id}>
-                            <div
-                              className="book-cover"
-                              style={{
-                                width: 128,
-                                height: 193,
-                                backgroundImage: `url(${imageLinks.thumbnail})`,
-                              }}
-                            ></div>
-                            <BookShelfChanger />
-                            <div className="book-title">{title}</div>
-                            <div className="book-authors">{authors[0]}</div>
-                          </div>
-                        );
-                      })}
-                    </div>
-                  </div>
+                  <Book books={books} />
                 </li>
               </ol>
             </div>
