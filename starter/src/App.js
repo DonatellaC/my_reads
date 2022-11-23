@@ -1,12 +1,15 @@
-import "./App.css";
-import { useState } from "react";
+import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Search from "./pages/Search";
+import "./App.css";
 
 function App() {
-  const [showSearchPage, setShowSearchpage] = useState(false);
-
-  return <div className="app">{showSearchPage ? <Search /> : <Home />}</div>;
+  return (
+    <Routes className="app">
+      <Route exact path="/" element={<Home />} />
+      <Route path="/search" element={<Search />} />
+    </Routes>
+  );
 }
 
 export default App;
