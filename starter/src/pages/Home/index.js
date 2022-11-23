@@ -5,7 +5,6 @@ import Header from "../../components/Header";
 import * as BooksAPI from "../../BooksAPI";
 
 const Home = () => {
-  const [selectedOption, setSelectedOption] = useState();
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
@@ -17,9 +16,6 @@ const Home = () => {
     getBooks();
   }, []);
 
-  const handleChange = (e) => {
-    setSelectedOption(e.target.value);
-  };
   return (
     <div className="list-books">
       <Header />
@@ -44,10 +40,7 @@ const Home = () => {
                                 backgroundImage: `url(${imageLinks.thumbnail})`,
                               }}
                             ></div>
-                            <BookShelfChanger
-                              handleChange={handleChange}
-                              selectedOption={selectedOption}
-                            />
+                            <BookShelfChanger />
                             <div className="book-title">{title}</div>
                             <div className="book-authors">{authors[0]}</div>
                           </div>

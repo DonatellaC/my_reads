@@ -1,6 +1,12 @@
-import React from "react";
+import { useState } from "react";
 
-const BookShelfChanger = ({ handleChange, selectedOption }) => {
+const BookShelfChanger = () => {
+  const [selectedOption, setSelectedOption] = useState();
+
+  const handleChange = (e) => {
+    setSelectedOption(e.target.value);
+  };
+
   return (
     <div className="book-shelf-changer">
       <select value={selectedOption} onChange={handleChange}>
