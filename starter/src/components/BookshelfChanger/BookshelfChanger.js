@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const BookShelfChanger = () => {
+const BookshelfChanger = () => {
   const [selectedOption, setSelectedOption] = useState();
 
   const handleChange = (e) => {
@@ -22,4 +22,4 @@ const BookShelfChanger = () => {
   );
 };
 
-export default BookShelfChanger;
+export default BookshelfChanger;

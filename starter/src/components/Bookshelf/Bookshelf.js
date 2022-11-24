@@ -1,5 +1,5 @@
 import React from "react";
-import Book from "../../components/Book";
+import Book from "../Book/Book";
 
 const Bookshelf = ({ books, bookshelfTitle }) => {
   return (
@@ -7,8 +7,10 @@ const Bookshelf = ({ books, bookshelfTitle }) => {
       <h2 className="bookshelf-title">{bookshelfTitle}</h2>
       <div className="bookshelf-books">
         <ol className="books-grid">
-          {books.map((books) => (
-            <Book key={books.id} {...books} />
+          {books.map((book) => (
+            <li key={book.id}>
+              <Book book={book} />
+            </li>
           ))}
         </ol>
       </div>

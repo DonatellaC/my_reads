@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Header from "../../components/Header";
+import Header from "../../components/Header/Header";
 import * as BooksAPI from "../../BooksAPI";
-import Bookshelf from "../../components/Bookshelf";
+import Bookshelf from "../../components/Bookshelf/Bookshelf";
 
 const Home = () => {
   const [books, setBooks] = useState([]);
