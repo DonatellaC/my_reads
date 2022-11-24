@@ -1,12 +1,15 @@
 import React from "react";
 import BookShelfChanger from "../../components/BookShelfChanger";
 
-const Book = ({ books }) => {
+const Book = ({ books, shelf }) => {
   return (
     <div className="book">
       <div className="book-top">
         {books.map((book) => {
-          const { id, imageLinks, title, shelf, authors } = book;
+          const { id, imageLinks, title, authors } = book;
+
+          console.log(book.shelf);
+
           return (
             <div key={id}>
               <div

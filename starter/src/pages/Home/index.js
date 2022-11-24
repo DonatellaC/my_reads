@@ -1,12 +1,16 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-
 import Header from "../../components/Header";
 import * as BooksAPI from "../../BooksAPI";
-import Book from "../../components/Book";
+import Bookshelf from "../../components/Bookshelf";
 
 const Home = () => {
   const [books, setBooks] = useState([]);
+  const currentlyReading = books.filter(
+    (book) => book.shelf === "currentlyReading"
+  );
+  const wantToRead = books.filter((book) => book.shelf === "wantToRead");
+  const read = books.filter((book) => book.shelf === "read");
 
   useEffect(() => {
     const getBooks = async () => {
@@ -21,24 +25,12 @@ const Home = () => {
     <div className="list-books">
       <Header />
       <div className="list-books-content">
-        <div>
-          <div className="bookshelf">
-            <h2 className="bookshelf-title">Currently Reading</h2>
-            <div className="bookshelf-books">
-              <ol className="books-grid">
-                <li>
-                  <Book books={books} />
-                </li>
-              </ol>
-            </div>
-          </div>
-          <div className="bookshelf">
-            <h2 className="bookshelf-title">Want to Read</h2>
-          </div>
-          <div className="bookshelf">
-            <h2 className="bookshelf-title">Read</h2>
-          </div>
-        </div>
+        <Bookshelf
+          books={currentlyReading}
+          bookshelfTitle="Currently Reading"
+        />
+        <Bookshelf books={wantToRead} bookshelfTitle="Want to Read" />
+        <Bookshelf books={read} bookshelfTitle="Read" />
       </div>
       <div className="open-search">
         <Link to="/search">Add a book</Link>
