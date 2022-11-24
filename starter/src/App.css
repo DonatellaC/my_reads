@@ -139,7 +139,7 @@ body,
 .book-top {
   position: relative;
   height: 200px;
-  display: flex;
+  /* display: flex; */
   align-items: flex-end;
 }
 

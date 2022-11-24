@@ -1,34 +1,27 @@
 import React from "react";
 import BookShelfChanger from "../../components/BookShelfChanger";
 
-const Book = ({ books, shelf }) => {
+const Book = ({ ...books }) => {
+  const { imageLinks, title, authors } = books;
   return (
-    <div className="book">
-      <div className="book-top">
-        {books.map((book) => {
-          const { id, imageLinks, title, authors } = book;
+    <li>
+      <div className="book">
+        <div className="book-top">
+          <div
+            className="book-cover"
+            style={{
+              width: 128,
+              height: 193,
+              backgroundImage: `url(${imageLinks.thumbnail})`,
+            }}
+          ></div>
 
-          console.log(book.shelf);
-
-          return (
-            <div key={id}>
-              <div
-                className="book-cover"
-                style={{
-                  width: 128,
-                  height: 193,
-                  backgroundImage: `url(${imageLinks.thumbnail})`,
-                }}
-              ></div>
-
-              <BookShelfChanger />
-              <div className="book-title">{title}</div>
-              <div className="book-authors">{authors[0]}</div>
-            </div>
-          );
-        })}
+          <BookShelfChanger />
+          <div className="book-title">{title}</div>
+          <div className="book-authors">{authors[0]}</div>
+        </div>
       </div>
-    </div>
+    </li>
   );
 };
 
