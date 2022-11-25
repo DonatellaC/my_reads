@@ -1,7 +1,7 @@
 import React from "react";
 import BookshelfChanger from "../BookshelfChanger/BookshelfChanger";
 
-const Book = ({ book }) => {
+const Book = ({ book, moveBookBetweenShelves }) => {
   const { imageLinks, title, authors } = book;
   return (
     <div className="book">
@@ -15,7 +15,10 @@ const Book = ({ book }) => {
           }}
         ></div>
 
-        <BookshelfChanger />
+        <BookshelfChanger
+          book={book}
+          moveBookBetweenShelves={moveBookBetweenShelves}
+        />
         <div className="book-title">{title}</div>
         <div className="book-authors">{authors[0]}</div>
       </div>
