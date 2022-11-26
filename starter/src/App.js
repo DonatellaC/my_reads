@@ -35,7 +35,15 @@ function App() {
           <Home books={books} moveBookBetweenShelves={moveBookBetweenShelves} />
         }
       />
-      <Route path="/search" element={<Search />} />
+      <Route
+        path="/search"
+        element={
+          <Search
+            books={books}
+            moveBookBetweenShelves={moveBookBetweenShelves}
+          />
+        }
+      />
     </Routes>
   );
 }

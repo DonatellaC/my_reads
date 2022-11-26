@@ -20,7 +20,7 @@ const Book = ({ book, moveBookBetweenShelves }) => {
           moveBookBetweenShelves={moveBookBetweenShelves}
         />
         <div className="book-title">{title}</div>
-        <div className="book-authors">{authors[0]}</div>
+        <div className="book-authors">{authors[0] ? authors[0] : ""}</div>
       </div>
     </div>
   );
