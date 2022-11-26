@@ -3,16 +3,16 @@ import { Link } from "react-router-dom";
 import * as BooksAPI from "../../BooksAPI";
 import Book from "../../components/Book/Book";
 
-const Search = (moveBookBetweenShelves) => {
+const Search = ({ books, moveBookBetweenShelves }) => {
   const [searchBooks, setSearchBooks] = useState("");
   const [getBooks, setGetBooks] = useState([]);
 
   //search books
-
   useEffect(() => {
     if (searchBooks) {
       BooksAPI.search(searchBooks).then((result) => {
         setGetBooks(result);
+        console.log(result, "search books");
       });
     }
     setGetBooks([]);
@@ -44,6 +44,7 @@ const Search = (moveBookBetweenShelves) => {
               <li key={b.id}>
                 <Book
                   book={b}
+                  books={books}
                   moveBookBetweenShelves={moveBookBetweenShelves}
                 />
               </li>

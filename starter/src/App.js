@@ -37,7 +37,12 @@ function App() {
       />
       <Route
         path="/search"
-        element={<Search moveBookBetweenShelves={moveBookBetweenShelves} />}
+        element={
+          <Search
+            books={books}
+            moveBookBetweenShelves={moveBookBetweenShelves}
+          />
+        }
       />
     </Routes>
   );

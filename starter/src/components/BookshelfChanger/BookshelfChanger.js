@@ -7,8 +7,11 @@ const BookshelfChanger = ({ book, moveBookBetweenShelves }) => {
 
   return (
     <div className="book-shelf-changer">
-      <select defaultValue={book.shelf} onChange={handleChange}>
-        <option value="none" disabled>
+      <select
+        defaultValue={book.shelf ? book.shelf : "none"}
+        onChange={handleChange}
+      >
+        <option value="move-to" disabled>
           Move to...
         </option>
         <option value="currentlyReading">Currently Reading</option>
