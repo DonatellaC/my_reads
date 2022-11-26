@@ -8,12 +8,14 @@ const Search = (books, moveBookBetweenShelves) => {
   const [getBooks, setGetBooks] = useState([]);
 
   //search books
+
   useEffect(() => {
     if (searchBooks) {
       BooksAPI.search(searchBooks).then((result) => {
         setGetBooks(result);
       });
     }
+    setGetBooks([]);
   }, [searchBooks]);
 
   return (
@@ -33,11 +35,20 @@ const Search = (books, moveBookBetweenShelves) => {
       </div>
       <div className="search-books-results">
         <ol className="books-grid">
-          {getBooks.map((b) => (
-            <li key={b.id}>
-              <Book book={b} moveBookBetweenShelves={moveBookBetweenShelves} />
-            </li>
-          ))}
+          {getBooks.length === undefined ? (
+            <div>
+              <h1>No books match your search. Try again!</h1>
+            </div>
+          ) : (
+            getBooks.map((b) => (
+              <li key={b.id}>
+                <Book
+                  book={b}
+                  moveBookBetweenShelves={moveBookBetweenShelves}
+                />
+              </li>
+            ))
+          )}
         </ol>
       </div>
     </div>
