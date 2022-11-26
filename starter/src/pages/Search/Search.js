@@ -18,6 +18,16 @@ const Search = ({ books, moveBookBetweenShelves }) => {
     setGetBooks([]);
   }, [searchBooks]);
 
+  const updatedStateSearchBooks = getBooks.map((book) => {
+    books.map((b) => {
+      if (b.id === book.id) {
+        book.shelf = b.shelf;
+      }
+      return b;
+    });
+    return book;
+  });
+
   return (
     <div className="search-books">
       <div className="search-books-bar">
@@ -40,11 +50,10 @@ const Search = ({ books, moveBookBetweenShelves }) => {
               <h1>No books match your search. Try again!</h1>
             </div>
           ) : (
-            getBooks.map((b) => (
+            updatedStateSearchBooks.map((b) => (
               <li key={b.id}>
                 <Book
                   book={b}
-                  books={books}
                   moveBookBetweenShelves={moveBookBetweenShelves}
                 />
               </li>
