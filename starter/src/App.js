@@ -21,8 +21,8 @@ function App() {
   //move books
   const moveBookBetweenShelves = async (book, shelf) => {
     await BooksAPI.update(book, shelf);
-    BooksAPI.getAll().then((books) => {
-      setBooks(books);
+    BooksAPI.getAll().then((result) => {
+      setBooks(result);
     });
   };
 
@@ -37,12 +37,7 @@ function App() {
       />
       <Route
         path="/search"
-        element={
-          <Search
-            books={books}
-            moveBookBetweenShelves={moveBookBetweenShelves}
-          />
-        }
+        element={<Search moveBookBetweenShelves={moveBookBetweenShelves} />}
       />
     </Routes>
   );

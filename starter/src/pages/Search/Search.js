@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import * as BooksAPI from "../../BooksAPI";
 import Book from "../../components/Book/Book";
 
-const Search = (books, moveBookBetweenShelves) => {
+const Search = (moveBookBetweenShelves) => {
   const [searchBooks, setSearchBooks] = useState("");
   const [getBooks, setGetBooks] = useState([]);
 

@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import Header from "../../components/Header/Header";
 import Bookshelf from "../../components/Bookshelf/Bookshelf";
 
 const Home = ({ books, moveBookBetweenShelves }) => {
@@ -11,7 +10,9 @@ const Home = ({ books, moveBookBetweenShelves }) => {
 
   return (
     <div className="list-books">
-      <Header />
+      <div className="list-books-title">
+        <h1>MyReads</h1>
+      </div>
       <div className="list-books-content">
         <Bookshelf
           books={currentlyReading}
