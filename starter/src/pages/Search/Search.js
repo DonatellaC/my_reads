@@ -17,15 +17,17 @@ const Search = ({ books, moveBookBetweenShelves }) => {
     setGetBooks([]);
   }, [searchBooks]);
 
-  const updatedStateSearchBooks = getBooks.map((book) => {
-    books.map((b) => {
-      if (b.id === book.id) {
-        book.shelf = b.shelf;
-      }
-      return b;
-    });
-    return book;
-  });
+  const updatedStateSearchBooks = Array.isArray(getBooks)
+    ? getBooks.map((book) => {
+        books.map((b) => {
+          if (b.id === book.id) {
+            book.shelf = b.shelf;
+          }
+          return b;
+        });
+        return book;
+      })
+    : "";
 
   return (
     <div className="search-books">
