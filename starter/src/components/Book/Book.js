@@ -22,7 +22,7 @@ const Book = ({ book, moveBookBetweenShelves, filteredBoooks }) => {
           filteredBoooks={filteredBoooks}
         />
         <div className="book-title">{title}</div>
-        <div className="book-authors">{authors ? authors[0] : ""}</div>
+        <div className="book-authors">{authors ? authors.join(", ") : ""}</div>
       </div>
     </div>
   );
