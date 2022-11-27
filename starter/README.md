@@ -2,9 +2,20 @@
 
 MyReads is a bookshelf app build in React as part of  Udacity's Frontend Nanodegree course.
 
+This Book Tracking App has two pages:
+
+- Home
+
+- Search
+
+The Home page shows three categorie for books: Currently Reading, Want to Read, and Read. It users to move books between shelves. The information persist between page refreshes.
+
+The Search page allows users to search for books and  to categorize a book as “Currently Reading,” “Want to Read”, or “Read”. The selections made on the search page show up on the main page.
+
 ## Getting Started
 
-- clone or download this repository
+- git clone <https://github.com/DonatellaC/my_reads.git>
+- cd starter
 - install all project dependencies with `npm install`
 - start the development server with `npm start`
 - [react-router-dom](https://www.npmjs.com/package/react-router-dom) is needed
