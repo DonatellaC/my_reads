@@ -12,7 +12,6 @@ const Search = ({ books, moveBookBetweenShelves }) => {
     if (searchBooks) {
       BooksAPI.search(searchBooks).then((result) => {
         setGetBooks(result);
-        console.log(result, "search books");
       });
     }
     setGetBooks([]);
